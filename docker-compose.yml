@@ -1,0 +1,43 @@
+
+services:
+  db:
+    image: mysql:8.0        
+    container_name: mini_forum_db  
+    environment:
+      MYSQL_ROOT_PASSWORD: example    
+      MYSQL_DATABASE: mini_forum      
+      TZ: Asia/Bangkok               
+    ports:
+      - "3306:3306"                  
+    volumes:
+      - dbdata:/var/lib/mysql        
+  adminer:
+    image: adminer                     
+    container_name: mini_forum_adminer 
+    ports:
+      - "8080:8080"                   
+  mongo:
+    image: mongo:6                     
+    container_name: mini_forum_mongo   
+    environment:
+      # การตั้งค่าสิ่งแวดล้อมสำหรับ MongoDB
+      MONGO_INITDB_ROOT_USERNAME: root       
+      MONGO_INITDB_ROOT_PASSWORD: example    
+      TZ: Asia/Bangkok                       
+    ports:
+      - "27017:27017"                
+    volumes:
+      - mongodata:/data/db           
+  mongo-express:
+    image: mongo-express                        
+    container_name: mini_forum_mongo_express    
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root     
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example  
+      ME_CONFIG_MONGODB_SERVER: mongo           
+      ME_CONFIG_BASICAUTH: "false"              
+    ports:
+      - "8081:8081"                            
+volumes:
+  dbdata:      
+  mongodata:   

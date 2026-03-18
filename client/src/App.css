@@ -1,0 +1,40 @@
+/* เพิ่มความโปร่งและขอบมนให้ card */
+.card, .list-group-item {
+  border-radius: 16px !important;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.06);
+  border: 1px solid #e0e0e0 !important;
+}
+
+/* ปุ่มสีหลัก */
+.btn-primary, .btn-success, .btn-danger, .btn-warning {
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+/* ปุ่มในกล่องกระทู้ */
+.thread-action-btns .btn {
+  min-width: 90px;
+}
+
+/* พื้นหลังหลัก */
+body, .thread-bg, .container.py-4 {
+  background: #f7f8fa !important;
+}
+
+/* หัวข้อ */
+h3, h5 {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* ตาราง dashboard */
+.table th, .table td {
+  vertical-align: middle;
+  text-align: center;
+}
+
+/* เพิ่ม hover ให้ list-group-item */
+.list-group-item:hover {
+  background: #f5f6fa;
+  transition: background 0.2s;
+}
